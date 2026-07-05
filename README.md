@@ -81,9 +81,9 @@ Settings → Toastmaster:
 
 ## Support
 
-If this plugin is useful to you, consider supporting its development:
-
-[![ko-fi](https://storage.ko-fi.com/cdn/kofi6.png?v=6)](https://ko-fi.com/labtopia)
+Straight from the solar-powered TikiBarge, tools that don't exist that should make me nuts 🐒!
+If you feel the same, shoot me a message and keep the Kittehs in kibble:
+[Support me on Ko-fi](https://ko-fi.com/labtopia).
 
 ## Contributing
 
@@ -93,3 +93,7 @@ changes.
 ## License
 
 MIT
+
+---
+
+☕ [Support this project on Ko-fi](https://ko-fi.com/labtopia)
