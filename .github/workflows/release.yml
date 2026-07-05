@@ -16,9 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
@@ -29,10 +26,25 @@ jobs:
 
       - name: Read tag message
         id: tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Read the tag's own message via the API rather than the local
+          # checkout's ref - actions/checkout's fetch/ref handling can hand
+          # back a ref pointing straight at the target commit instead of the
+          # annotated tag object, which would silently pull the commit
+          # message instead of the tag's own message.
+          ref_json=$(gh api "repos/${GITHUB_REPOSITORY}/git/refs/tags/${GITHUB_REF_NAME}")
+          obj_type=$(echo "$ref_json" | jq -r '.object.type')
+          obj_sha=$(echo "$ref_json" | jq -r '.object.sha')
+          if [ "$obj_type" = "tag" ]; then
+            notes=$(gh api "repos/${GITHUB_REPOSITORY}/git/tags/${obj_sha}" --jq '.message')
+          else
+            notes=$(gh api "repos/${GITHUB_REPOSITORY}/git/commits/${obj_sha}" --jq '.message')
+          fi
           {
             echo "notes<<TOASTMASTER_EOF"
-            git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(contents)'
+            echo "$notes"
             echo "TOASTMASTER_EOF"
           } >> "$GITHUB_OUTPUT"
 
