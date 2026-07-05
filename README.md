@@ -30,6 +30,11 @@ Two modes, both configurable in Settings → Toastmaster:
 - **Persist until dismissed**: ignore duration entirely; every toast stays on screen until
   you click it.
 
+Toastmaster also keeps a small log of recent toasts (from any plugin, or core), so you can
+review one you missed. Run **"Show recent toasts"** from the command palette, or open it from
+Settings → Toastmaster. Capped at a configurable size (default 50), oldest entries dropped
+first, and persists across restarts.
+
 ## Already-existing behavior worth knowing about
 
 Two things Obsidian already does, that most people don't know about, and which this plugin
@@ -57,6 +62,8 @@ doesn't change:
 Settings → Toastmaster:
 - **Minimum toast duration (ms)** — default 8000
 - **Persist all toasts until dismissed** — default off
+- **Keep a log of recent toasts** — default on
+- **Log size** — default 50
 
 ## Compatibility
 
