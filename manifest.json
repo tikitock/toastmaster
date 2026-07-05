@@ -1,0 +1,9 @@
+{
+    "id": "toastmaster",
+    "name": "Toastmaster",
+    "version": "1.0.0",
+    "minAppVersion": "1.0.0",
+    "description": "Configurable duration and dismiss controls for toast notifications, so they don't disappear before you finish reading them.",
+    "author": "Labtopia",
+    "isDesktopOnly": false
+}
