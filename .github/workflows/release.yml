@@ -36,7 +36,8 @@ jobs:
       - name: Create release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTES: ${{ steps.tag.outputs.notes }}
         run: |
           gh release create "${GITHUB_REF_NAME}" main.js manifest.json \
             --title "${GITHUB_REF_NAME}" \
-            --notes "${{ steps.tag.outputs.notes }}"
+            --notes "$NOTES"
