@@ -253,7 +253,28 @@ class ToastmasterSettingTab extends obsidian.PluginSettingTab {
             text: 'Tip: clicking anywhere on a toast already dismisses it immediately, and hovering your mouse over one already pauses its auto-hide timer while you read it.',
             cls: 'setting-item-description'
         });
+
+        renderSupportFooter(containerEl);
     }
+}
+
+function renderSupportFooter(containerEl) {
+    containerEl.createEl('h3', { text: 'Support' });
+    containerEl.createEl('p', {
+        text: "Straight from the solar-powered TikiBarge, tools that don't exist that should make me nuts 🐒! If you feel the same, shoot me a message and keep the Kittehs in kibble:"
+    });
+
+    const kofiLink = containerEl.createEl('a');
+    kofiLink.href = 'https://ko-fi.com/labtopia';
+    kofiLink.target = '_blank';
+    kofiLink.rel = 'noopener';
+
+    const kofiImg = kofiLink.createEl('img');
+    kofiImg.src = 'https://storage.ko-fi.com/cdn/kofi6.png?v=6';
+    kofiImg.alt = 'Buy Me a Coffee at ko-fi.com';
+    kofiImg.height = 36;
+    kofiImg.style.height = '36px';
+    kofiImg.style.border = '0px';
 }
 
 module.exports = Toastmaster;

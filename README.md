@@ -79,6 +79,12 @@ Settings → Toastmaster:
 - Only affects toasts created after the plugin loads; any toast already on screen when you
   enable/disable the plugin keeps its original timing.
 
+## Support
+
+If this plugin is useful to you, consider supporting its development:
+
+[![ko-fi](https://storage.ko-fi.com/cdn/kofi6.png?v=6)](https://ko-fi.com/labtopia)
+
 ## Contributing
 
 Issues and pull requests welcome. Please open an issue before submitting a PR for significant
